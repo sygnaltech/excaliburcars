@@ -1,7 +1,7 @@
 "use strict";
 (() => {
   // src/version.ts
-  var VERSION = "0.1.0";
+  var VERSION = "0.1.1";
 
   // src/pages/home.ts
   var HomePage = class {
@@ -4432,11 +4432,29 @@
     }
     setup() {
       Page.loadEngineCSS("site.css");
-      if (!window.location.host.endsWith(".webflow.io")) {
-        as.init("phc_gs1Rw2IqWPLtFc6NccIGJfs7UNpT5AGw11Y7IAXs0zz", { api_host: "https://us.i.posthog.com", person_profiles: "identified_only" });
-      }
+      as.init("phc_gs1Rw2IqWPLtFc6NccIGJfs7UNpT5AGw11Y7IAXs0zz", { api_host: "https://us.i.posthog.com", person_profiles: "identified_only" });
     }
     exec() {
+    }
+  };
+
+  // src/pages/booking.ts
+  var BookingPage = class {
+    constructor() {
+    }
+    setup() {
+    }
+    exec() {
+      const form = document.getElementById("wf-form-Booking-Form");
+      if (form) {
+        form.addEventListener("submit", (event) => {
+          const emailInput = form.querySelector('[data-name="Email"]');
+          if (emailInput) {
+            const email = emailInput.value;
+            as.identify(email);
+          }
+        });
+      }
     }
   };
 
@@ -4444,7 +4462,8 @@
   var routeDispatcher = () => {
     var routeDispatcher2 = new RouteDispatcher(Site);
     routeDispatcher2.routes = {
-      "/": HomePage
+      "/": HomePage,
+      "/booking": BookingPage
     };
     return routeDispatcher2;
   };

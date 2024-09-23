@@ -4369,9 +4369,7 @@
     }
     setup() {
       Page.loadEngineCSS("site.css");
-      if (!window.location.host.endsWith(".webflow.io")) {
-        as.init("phc_gs1Rw2IqWPLtFc6NccIGJfs7UNpT5AGw11Y7IAXs0zz", { api_host: "https://us.i.posthog.com", person_profiles: "identified_only" });
-      }
+      as.init("phc_gs1Rw2IqWPLtFc6NccIGJfs7UNpT5AGw11Y7IAXs0zz", { api_host: "https://us.i.posthog.com", person_profiles: "identified_only" });
     }
     exec() {
     }
