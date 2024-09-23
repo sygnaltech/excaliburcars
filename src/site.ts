@@ -25,9 +25,9 @@ export class Site implements IModule {
 
     // Init Posthog
     // Only on non-staging pages 
-    if (!window.location.host.endsWith('.webflow.io')) {
-      posthog.init('phc_gs1Rw2IqWPLtFc6NccIGJfs7UNpT5AGw11Y7IAXs0zz', { api_host: 'https://us.i.posthog.com', person_profiles: 'identified_only' })
-    }
+//    if (!window.location.host.endsWith('.webflow.io')) {
+    posthog.init('phc_gs1Rw2IqWPLtFc6NccIGJfs7UNpT5AGw11Y7IAXs0zz', { api_host: 'https://us.i.posthog.com', person_profiles: 'identified_only' })
+//    }
     
   }
 

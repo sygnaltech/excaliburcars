@@ -13,14 +13,16 @@
 import { HomePage } from "./pages/home";
 import { RouteDispatcher } from "@sygnal/sse";
 import { Site } from "./site";
+import { BookingPage } from "./pages/booking";
 
 export const routeDispatcher = (): RouteDispatcher => {
     
     var routeDispatcher = new RouteDispatcher(Site);
     routeDispatcher.routes = {
 
-        // Site paes
+        // Site pages 
         '/': HomePage,
+        '/booking': BookingPage,
 
         // TEST Pages
 
