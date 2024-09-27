@@ -5,6 +5,12 @@
 
 import { IModule } from "@sygnal/sse";
 import posthog from 'posthog-js'
+import Cookies from 'js-cookie';
+
+
+
+
+
 
 export class BookingPage implements IModule {
 
@@ -39,9 +45,34 @@ export class BookingPage implements IModule {
 
                 // Allow the form to submit normally by NOT calling event.preventDefault()
             }
+
+
+          // Only check and set the transaction ID if the form is valid
+          if (form.checkValidity()) {
+
+            // Create a transaction ID
+            this.checkAndSetTransactionId();
+
+          }
+
+
         });
     }
 
   }
+
+  checkAndSetTransactionId(): void {
+    // Check if the transactionId cookie exists
+    let transactionId = Cookies.get('transactionId');
+    
+    // If it doesn't exist, generate a new UUID and set the cookie
+//    if (!transactionId) {
+        transactionId = crypto.randomUUID(); // Generate unique ID
+        Cookies.set('transactionId', transactionId, { expires: 7 }); // Set cookie with a 7-day expiration
+        console.log('New Transaction ID set:', transactionId);
+    // } else {
+    //     console.log('Transaction ID exists:', transactionId);
+    // }
+}
 
 }
