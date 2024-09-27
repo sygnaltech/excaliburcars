@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "serve", 
+    "serve": "serve",
     "build": "node build.js",
     "watch": "node build.js --watch",
     "esbuild": "esbuild ./src/*.ts --bundle --sourcemap --outdir=dist --watch",
@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@sygnal/sse": "^0.2.0",
+    "@types/js-cookie": "^3.0.6",
     "glob": "^10.4.2",
     "gsap": "^3.12.5",
     "js-cookie": "^3.0.5",

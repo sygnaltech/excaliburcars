@@ -4442,8 +4442,17 @@
             const email = emailInput.value;
             as.identify(email);
           }
+          if (form.checkValidity()) {
+            this.checkAndSetTransactionId();
+          }
         });
       }
+    }
+    checkAndSetTransactionId() {
+      let transactionId = api.get("transactionId");
+      transactionId = crypto.randomUUID();
+      api.set("transactionId", transactionId, { expires: 7 });
+      console.log("New Transaction ID set:", transactionId);
     }
   };
 
