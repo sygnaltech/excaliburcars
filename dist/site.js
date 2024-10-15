@@ -4372,6 +4372,22 @@
       as.init("phc_gs1Rw2IqWPLtFc6NccIGJfs7UNpT5AGw11Y7IAXs0zz", { api_host: "https://us.i.posthog.com", person_profiles: "identified_only" });
     }
     exec() {
+      this.storeUTMParams();
+    }
+    storeUTMParams() {
+      const utmParams = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+      const urlParams = new URLSearchParams(window.location.search);
+      const isAnyUTMFound = utmParams.some((param) => urlParams.has(param));
+      if (isAnyUTMFound) {
+        utmParams.forEach((param) => {
+          const value = urlParams.get(param);
+          if (value) {
+            localStorage.setItem(param, value);
+          } else {
+            localStorage.removeItem(param);
+          }
+        });
+      }
     }
   };
 })();
