@@ -14,6 +14,7 @@ import { HomePage } from "./pages/home";
 import { RouteDispatcher } from "@sygnal/sse";
 import { Site } from "./site";
 import { BookingPage } from "./pages/booking";
+import { TestVideoPage } from "./pages/test/video";
 
 export const routeDispatcher = (): RouteDispatcher => {
     
@@ -25,7 +26,8 @@ export const routeDispatcher = (): RouteDispatcher => {
         '/booking': BookingPage,
 
         // TEST Pages
-
+        '/test/video': TestVideoPage,
+        
     };
 
     return routeDispatcher;
