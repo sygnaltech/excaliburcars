@@ -6,7 +6,7 @@
 import { IModule } from "@sygnal/sse";
 
 
-export class TestComponent implements IModule {
+export class VideoUnmuteComponent implements IModule {
 
   elem: HTMLElement;
 
