@@ -17,7 +17,7 @@ export class TestVideoPage implements IModule {
 
   exec() {
 
-console.log("VIDEO PAGE")
+    console.log("VIDEO PAGE")
 
     const playButton = document.getElementById('playButton') as HTMLButtonElement | null;
 //    const mutedButton = document.getElementById('mutedButton') as HTMLButtonElement | null;
